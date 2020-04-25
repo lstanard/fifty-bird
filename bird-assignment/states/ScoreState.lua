@@ -16,6 +16,9 @@ ScoreState = Class{__includes = BaseState}
 ]]
 function ScoreState:enter(params)
     self.score = params.score
+    self.bronzeImg = love.graphics.newImage('bronze.png')
+    self.silverImg = love.graphics.newImage('silver.png')
+    self.goldImg = love.graphics.newImage('gold.png')
 end
 
 function ScoreState:update(dt)
@@ -33,5 +36,16 @@ function ScoreState:render()
     love.graphics.setFont(mediumFont)
     love.graphics.printf('Score: ' .. tostring(self.score), 0, 100, VIRTUAL_WIDTH, 'center')
 
-    love.graphics.printf('Press Enter to Play Again!', 0, 160, VIRTUAL_WIDTH, 'center')
+    if self.score > 3 then
+        love.graphics.printf('You earned a gold medal', 0, 120, VIRTUAL_WIDTH, 'center')
+        love.graphics.draw(self.goldImg, VIRTUAL_WIDTH / 2, 160, 0, 0.25, 0.25)
+    elseif self.score > 2 then
+        love.graphics.printf('You earned a silver medal', 0, 120, VIRTUAL_WIDTH, 'center')
+        love.graphics.draw(self.silverImg, VIRTUAL_WIDTH / 2, 160, 0, 0.25, 0.25)
+    elseif self.score > 1 then
+        love.graphics.printf('You earned a bronze medal', 0, 120, VIRTUAL_WIDTH, 'center')
+        love.graphics.draw(self.bronzeImg, VIRTUAL_WIDTH / 2, 160, 0, 0.25, 0.25)
+    end
+
+    love.graphics.printf('Press Enter to Play Again!', 0, 220, VIRTUAL_WIDTH, 'center')
 end

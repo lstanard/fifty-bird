@@ -38,13 +38,13 @@ function ScoreState:render()
 
     if self.score > 3 then
         love.graphics.printf('You earned a gold medal', 0, 120, VIRTUAL_WIDTH, 'center')
-        love.graphics.draw(self.goldImg, VIRTUAL_WIDTH / 2, 160, 0, 0.25, 0.25)
+        love.graphics.draw(self.goldImg, VIRTUAL_WIDTH / 2 - self.goldImg:getWidth() / 4, 150, 0, 0.5, 0.5)
     elseif self.score > 2 then
         love.graphics.printf('You earned a silver medal', 0, 120, VIRTUAL_WIDTH, 'center')
-        love.graphics.draw(self.silverImg, VIRTUAL_WIDTH / 2, 160, 0, 0.25, 0.25)
+        love.graphics.draw(self.silverImg, VIRTUAL_WIDTH / 2 - self.silverImg:getWidth() / 4, 150, 0, 0.5, 0.5)
     elseif self.score > 1 then
         love.graphics.printf('You earned a bronze medal', 0, 120, VIRTUAL_WIDTH, 'center')
-        love.graphics.draw(self.bronzeImg, VIRTUAL_WIDTH / 2, 160, 0, 0.25, 0.25)
+        love.graphics.draw(self.bronzeImg, VIRTUAL_WIDTH / 2 - self.bronzeImg:getWidth() / 4, 150, 0, 0.5, 0.5)
     end
 
     love.graphics.printf('Press Enter to Play Again!', 0, 220, VIRTUAL_WIDTH, 'center')
